@@ -81,7 +81,7 @@ const App: React.FC = () => {
             <div className="max-w-4xl mx-auto text-center relative z-10">
               <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-brand-darkGrey font-mono text-xs mb-10">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-chartreuse animate-pulse"></span>
-                OPTIMIZE YOUR CLOUD, SAVE TIME.
+                FinOps Maturity for AI Workloads
               </div>
               
               <h1 className="text-5xl md:text-7xl font-headline font-medium tracking-tight text-white mb-8 leading-tight">
@@ -90,7 +90,7 @@ const App: React.FC = () => {
               </h1>
               
               <p className="text-xl md:text-2xl text-brand-darkGrey mb-12 max-w-2xl mx-auto leading-relaxed font-light">
-                Evaluate your FinOps maturity across 10 critical dimensions. Get actionable insights to optimize your spend.
+                Understand how well your organization can measure, allocate, and govern AI-driven cloud costs.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
