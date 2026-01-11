@@ -52,7 +52,7 @@ const App: React.FC = () => {
       <header role="banner">
         <nav className="border-b border-white/5 bg-brand-charcoal/90 backdrop-blur-md sticky top-0 z-50" role="navigation" aria-label="Main navigation">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between h-20 items-center">
+            <div className="flex justify-between items-center h-20">
                {/* Left side - App Title */}
                <button
                  className="cursor-pointer font-headline text-brand-darkGrey hover:text-white transition-colors text-sm tracking-wide uppercase"
@@ -63,16 +63,17 @@ const App: React.FC = () => {
                </button>
 
               {/* Center - AI ROI Calculator Link */}
-              <a
-                href="https://airoicalculator.optimnow.io/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg border border-brand-chartreuse/20 bg-brand-chartreuse/5 hover:bg-brand-chartreuse/10 text-brand-chartreuse hover:border-brand-chartreuse/40 transition-all duration-200 text-sm font-mono"
-                aria-label="Open AI ROI Calculator in new tab"
-              >
-                <span>💰</span>
-                <span>AI ROI Calculator</span>
-              </a>
+              <div className="absolute left-1/2 transform -translate-x-1/2">
+                <a
+                  href="https://airoicalculator.optimnow.io/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg border border-brand-chartreuse/20 bg-brand-chartreuse/5 hover:bg-brand-chartreuse/10 text-brand-chartreuse hover:border-brand-chartreuse/40 transition-all duration-200 text-sm font-mono"
+                  aria-label="Open AI ROI Calculator in new tab"
+                >
+                  <span>AI ROI Calculator</span>
+                </a>
+              </div>
 
               {/* Right side - Logo */}
               <button className="cursor-pointer" onClick={() => setAppState(AppState.LANDING)} aria-label="OptimNow Cloud home">
