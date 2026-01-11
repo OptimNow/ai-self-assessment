@@ -4,6 +4,7 @@ import { Assessment } from './components/Assessment';
 import { Results } from './components/Results';
 import { generateReadinessReport } from './services/geminiService';
 import { Loader2, ArrowRight } from 'lucide-react';
+import { Analytics } from '@vercel/analytics/react';
 
 const App: React.FC = () => {
   const [appState, setAppState] = useState<AppState>(AppState.LANDING);
@@ -60,6 +61,18 @@ const App: React.FC = () => {
                >
                  AI Cost Readiness Assessment
                </button>
+
+              {/* Center - AI ROI Calculator Link */}
+              <a
+                href="https://airoicalculator.optimnow.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg border border-brand-chartreuse/20 bg-brand-chartreuse/5 hover:bg-brand-chartreuse/10 text-brand-chartreuse hover:border-brand-chartreuse/40 transition-all duration-200 text-sm font-mono"
+                aria-label="Open AI ROI Calculator in new tab"
+              >
+                <span>💰</span>
+                <span>AI ROI Calculator</span>
+              </a>
 
               {/* Right side - Logo */}
               <button className="cursor-pointer" onClick={() => setAppState(AppState.LANDING)} aria-label="OptimNow Cloud home">
@@ -160,13 +173,14 @@ const App: React.FC = () => {
         )}
 
         {appState === AppState.RESULTS && (
-          <Results 
-            responses={responses} 
-            report={report} 
-            onReset={startAssessment} 
+          <Results
+            responses={responses}
+            report={report}
+            onReset={startAssessment}
           />
         )}
       </main>
+      <Analytics />
     </div>
   );
 };
