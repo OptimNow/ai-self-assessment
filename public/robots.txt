@@ -1,0 +1,40 @@
+# robots.txt for AI Cost Readiness Assessment by OptimNow
+# Optimized for LLM search engines and traditional web crawlers
+
+# Allow all crawlers full access
+User-agent: *
+Allow: /
+
+# Specific rules for AI/LLM crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Crawl delay recommendation
+Crawl-delay: 1
+
+# Site metadata for LLM understanding
+# Site-Description: Interactive self-assessment tool for evaluating AI and cloud cost management maturity
+# Site-Keywords: AI cost management, cloud FinOps, cost optimization, cost allocation, unit economics
+# Target-Audience: CTOs, VP Engineering, Cloud Architects, FinOps Teams
+# Content-Type: Business application, assessment tool, cost governance
+
+# Sitemap location (when available)
+# Sitemap: https://ai-cost-readiness.optimnow.cloud/sitemap.xml
