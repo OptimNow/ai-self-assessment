@@ -27,14 +27,17 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
 # Crawl delay recommendation
 Crawl-delay: 1
 
-# Site metadata for LLM understanding
-# Site-Description: Interactive self-assessment tool for evaluating AI and cloud cost management maturity
-# Site-Keywords: AI cost management, cloud FinOps, cost optimization, cost allocation, unit economics
-# Target-Audience: CTOs, VP Engineering, Cloud Architects, FinOps Teams
-# Content-Type: Business application, assessment tool, cost governance
+# Sitemap
+Sitemap: https://ai-cost-readiness.optimnow.cloud/sitemap.xml
 
-# Sitemap location (when available)
-# Sitemap: https://ai-cost-readiness.optimnow.cloud/sitemap.xml
+# LLM-specific context file
+# See also: https://ai-cost-readiness.optimnow.cloud/llms.txt

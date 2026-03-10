@@ -1,0 +1,49 @@
+# AI Cost Readiness Assessment by OptimNow Cloud
+
+> Free interactive tool that evaluates your organization's maturity in managing AI and cloud computing costs across 10 critical dimensions.
+
+## What This Tool Does
+
+The AI Cost Readiness Assessment is a free, browser-based self-assessment that scores organizational maturity in AI cost management. It generates a personalized report with strengths, gaps, and a strategic roadmap powered by AI analysis.
+
+## Who It's For
+
+- CTOs and VP Engineering evaluating AI cost governance
+- Cloud Architects designing cost-aware AI infrastructure
+- FinOps Managers assessing AI workload cost maturity
+- DevOps Leads implementing cost monitoring and alerting
+- Finance teams seeking AI cost transparency
+
+## Assessment Framework
+
+The tool evaluates 10 dimensions across 4 categories:
+
+### Visibility (3 dimensions)
+1. Real-time Visibility: Can you see AI costs as they accumulate?
+2. Allocation Capability: Can you trace costs to specific features, users, or workflows?
+3. Continuous Monitoring: Are dashboards updated in real-time?
+
+### Control (3 dimensions)
+4. Proxy Infrastructure: Do you have a gateway/proxy layer for cost tagging?
+5. Alert Configuration: Do you get notified of anomalies within minutes?
+6. Optimization Speed: Can engineering respond to cost spikes within hours?
+
+### Business Value (4 dimensions)
+7. Business Context: Can you explain AI costs in clear business terms?
+8. Unit Economics: Do you measure cost per business outcome?
+9. Forecast Capability: Can you predict AI costs based on usage patterns?
+10. ROI Measurement: Do you connect AI spending to business value delivered?
+
+## Scoring
+
+- 3-point maturity scale per dimension: Not Implemented (0), Partially Implemented (5), Fully Optimized (10)
+- Maximum score: 100 points
+- AI-powered personalized readiness report with executive summary, strengths, gaps, and strategic roadmap
+
+## About OptimNow Cloud
+
+OptimNow Cloud helps organizations optimize AI and cloud computing costs through FinOps best practices, cost governance tools, and strategic consulting.
+
+Website: https://optimnow.cloud
+Assessment: https://ai-cost-readiness.optimnow.cloud/
+AI ROI Calculator: https://airoicalculator.optimnow.io/

@@ -3,7 +3,7 @@ import { AppState, UserResponse, AnalysisReport } from './types';
 import { Assessment } from './components/Assessment';
 import { Results } from './components/Results';
 import { generateReadinessReport } from './services/geminiService';
-import { Loader2, ArrowRight } from 'lucide-react';
+import { Loader2, ArrowRight, ExternalLink } from 'lucide-react';
 import { Analytics } from '@vercel/analytics/react';
 
 const App: React.FC = () => {
@@ -68,10 +68,12 @@ const App: React.FC = () => {
                   href="https://airoicalculator.optimnow.io/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg border border-brand-chartreuse/20 bg-brand-chartreuse/5 hover:bg-brand-chartreuse/10 text-brand-chartreuse hover:border-brand-chartreuse/40 transition-all duration-200 text-sm font-mono"
+                  className="flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-lg border border-brand-chartreuse/20 bg-brand-chartreuse/5 hover:bg-brand-chartreuse/10 text-brand-chartreuse hover:border-brand-chartreuse/40 transition-all duration-200 text-xs md:text-sm font-mono"
                   aria-label="Open AI ROI Calculator in new tab"
                 >
-                  <span>AI ROI Calculator</span>
+                  <span className="hidden sm:inline">AI ROI Calculator</span>
+                  <span className="sm:hidden">ROI Calc</span>
+                  <ExternalLink className="w-3 h-3 hidden sm:block" aria-hidden="true" />
                 </a>
               </div>
 
@@ -129,27 +131,27 @@ const App: React.FC = () => {
 
               {/* Key Assessment Dimensions - Semantic Structure */}
               <section className="mt-20 pt-10 border-t border-white/5" aria-label="Assessment Focus Areas">
-                <h2 className="sr-only">Assessment Covers Four Key Areas</h2>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-brand-darkGrey text-sm font-mono">
+                <h2 className="text-sm font-mono text-brand-darkGrey uppercase tracking-wider mb-8">What We Assess</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-brand-darkGrey text-sm font-mono text-left">
                   <article className="flex flex-col gap-2" itemScope itemType="https://schema.org/Thing">
                       <span className="text-brand-chartreuse" aria-label="Focus Area 1">01</span>
-                      <h3 className="font-semibold" itemProp="name">VISIBILITY</h3>
-                      <meta itemProp="description" content="Real-time AI cost visibility, monitoring, and tracking capabilities" />
+                      <h3 className="font-semibold text-white" itemProp="name">VISIBILITY</h3>
+                      <p className="text-xs leading-relaxed" itemProp="description">Real-time AI cost tracking, monitoring dashboards, and spending awareness across your cloud infrastructure.</p>
                   </article>
                   <article className="flex flex-col gap-2" itemScope itemType="https://schema.org/Thing">
                       <span className="text-brand-chartreuse" aria-label="Focus Area 2">02</span>
-                      <h3 className="font-semibold" itemProp="name">ALLOCATION</h3>
-                      <meta itemProp="description" content="Cost allocation, tagging, and attribution to specific features and users" />
+                      <h3 className="font-semibold text-white" itemProp="name">ALLOCATION</h3>
+                      <p className="text-xs leading-relaxed" itemProp="description">Cost allocation and attribution to specific features, users, and workflows using tagging and proxy infrastructure.</p>
                   </article>
                   <article className="flex flex-col gap-2" itemScope itemType="https://schema.org/Thing">
                       <span className="text-brand-chartreuse" aria-label="Focus Area 3">03</span>
-                      <h3 className="font-semibold" itemProp="name">ECONOMICS</h3>
-                      <meta itemProp="description" content="Unit economics, cost optimization, and forecasting capabilities" />
+                      <h3 className="font-semibold text-white" itemProp="name">ECONOMICS</h3>
+                      <p className="text-xs leading-relaxed" itemProp="description">Unit economics measurement, cost-per-outcome tracking, and AI cost forecasting based on usage patterns.</p>
                   </article>
                   <article className="flex flex-col gap-2" itemScope itemType="https://schema.org/Thing">
                       <span className="text-brand-chartreuse" aria-label="Focus Area 4">04</span>
-                      <h3 className="font-semibold" itemProp="name">VALUE</h3>
-                      <meta itemProp="description" content="ROI measurement and business value assessment of AI investments" />
+                      <h3 className="font-semibold text-white" itemProp="name">VALUE</h3>
+                      <p className="text-xs leading-relaxed" itemProp="description">ROI measurement connecting AI spending directly to delivered business value and stakeholder communication.</p>
                   </article>
                 </div>
               </section>
@@ -181,6 +183,23 @@ const App: React.FC = () => {
           />
         )}
       </main>
+
+      {/* Footer - Trust signals and SEO links */}
+      <footer className="border-t border-white/5 bg-brand-charcoal" role="contentinfo">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="flex flex-col items-center md:items-start gap-2">
+              <Logo />
+              <p className="text-xs text-brand-darkGrey font-mono">AI and Cloud Cost Optimization</p>
+            </div>
+            <nav className="flex flex-wrap justify-center gap-6 text-xs font-mono text-brand-darkGrey" aria-label="Footer navigation">
+              <a href="https://optimnow.cloud" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">OptimNow Cloud</a>
+              <a href="https://airoicalculator.optimnow.io/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">AI ROI Calculator</a>
+            </nav>
+            <p className="text-xs text-brand-darkGrey font-mono">&copy; {new Date().getFullYear()} OptimNow. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
       <Analytics />
     </div>
   );

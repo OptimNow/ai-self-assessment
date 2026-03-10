@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+/* Custom theme configuration - migrated from CDN inline config */
+@theme {
+  --font-sans: 'Almarai', sans-serif;
+  --font-headline: 'Manrope', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  --color-brand-chartreuse: #ACE849;
+  --color-brand-charcoal: #2C2C2C;
+  --color-brand-darkGrey: #C1C1C1;
+  --color-brand-lightGrey: #F4F4F4;
+  --color-brand-white: #FFFFFF;
+}
+
+/* Fade-in animation for page transitions */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out;
+}
+
+/* Print styles for PDF export fallback */
+@media print {
+  nav, button, .no-print { display: none !important; }
+  body { background: white !important; color: black !important; }
+}

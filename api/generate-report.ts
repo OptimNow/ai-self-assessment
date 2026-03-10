@@ -1,10 +1,39 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import OpenAI from "openai";
 
+// In-memory rate limiter: max 10 requests per IP per minute
+const rateMap = new Map<string, { count: number; resetAt: number }>();
+const RATE_LIMIT = 10;
+const WINDOW_MS = 60_000;
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const entry = rateMap.get(ip);
+
+  if (!entry || now > entry.resetAt) {
+    rateMap.set(ip, { count: 1, resetAt: now + WINDOW_MS });
+    return false;
+  }
+
+  entry.count++;
+  return entry.count > RATE_LIMIT;
+}
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
     return res.status(405).json({ error: "Method Not Allowed" });
+  }
+
+  const clientIp =
+    (req.headers["x-forwarded-for"] as string)?.split(",")[0]?.trim() ||
+    req.socket?.remoteAddress ||
+    "unknown";
+
+  if (isRateLimited(clientIp)) {
+    return res.status(429).json({
+      error: "Too many requests. Please try again in a minute.",
+    });
   }
 
   if (!process.env.OPENAI_API_KEY) {
@@ -55,7 +84,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     `;
 
     const completion = await client.chat.completions.create({
-      model: "gpt-4o-mini", // ajuste selon le modèle que tu veux
+      model: "gpt-4o-mini",
       messages: [
         { role: "system", content: "You are an AI Cloud FinOps expert." },
         { role: "user", content: prompt },
