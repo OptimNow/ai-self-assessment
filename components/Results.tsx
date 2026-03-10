@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { UserResponse, AnalysisReport } from '../types';
 import { RadialChart } from './RadialChart';
-import { Download, RefreshCw, AlertCircle, Check, ArrowUpRight } from 'lucide-react';
+import { Download, RefreshCw, AlertCircle, Check, ArrowUpRight, Loader2 } from 'lucide-react';
 
 interface ResultsProps {
   responses: UserResponse[];
@@ -10,15 +10,42 @@ interface ResultsProps {
 }
 
 export const Results: React.FC<ResultsProps> = ({ responses, report, onReset }) => {
+  const [exporting, setExporting] = useState(false);
+  const reportRef = useRef<HTMLDivElement>(null);
   const totalScore = responses.reduce((acc, curr) => acc + curr.score, 0);
   const maxScore = responses.length * 10;
   const scorePercentage = Math.round((totalScore / maxScore) * 100);
 
-  // Minimal color logic: High score gets branding chartreuse, else white/grey to keep it clean
   const scoreColor = scorePercentage >= 70 ? 'text-brand-chartreuse' : 'text-white';
 
+  const handleExportPdf = async () => {
+    if (!reportRef.current || exporting) return;
+    setExporting(true);
+    try {
+      const html2pdf = (await import('html2pdf.js')).default;
+      await html2pdf()
+        .set({
+          margin: [10, 10, 10, 10],
+          filename: `AI-Cost-Readiness-Report-${scorePercentage}pct.pdf`,
+          image: { type: 'jpeg', quality: 0.95 },
+          html2canvas: {
+            scale: 2,
+            useCORS: true,
+            backgroundColor: '#2C2C2C',
+          },
+          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+        })
+        .from(reportRef.current)
+        .save();
+    } catch {
+      window.print();
+    } finally {
+      setExporting(false);
+    }
+  };
+
   return (
-    <div className="max-w-7xl mx-auto w-full px-6 py-12 animate-fade-in">
+    <div ref={reportRef} className="max-w-7xl mx-auto w-full px-6 py-12 animate-fade-in">
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-white/10 pb-8">
         <div>
@@ -29,20 +56,21 @@ export const Results: React.FC<ResultsProps> = ({ responses, report, onReset }) 
           </div>
           <h1 className="text-4xl md:text-5xl font-headline font-medium text-white">Your Readiness Profile</h1>
         </div>
-        <div className="mt-6 md:mt-0 flex gap-4">
-          <button 
+        <div className="mt-6 md:mt-0 flex gap-4 no-print">
+          <button
             onClick={onReset}
             className="flex items-center gap-2 px-4 py-2 text-brand-darkGrey hover:text-white transition-colors text-sm font-mono uppercase tracking-wider"
           >
             <RefreshCw className="w-4 h-4" />
             Retake
           </button>
-          <button 
-            onClick={() => window.print()}
-            className="flex items-center gap-2 px-5 py-2.5 rounded bg-white text-brand-charcoal hover:bg-brand-lightGrey transition-colors text-sm font-headline font-semibold"
+          <button
+            onClick={handleExportPdf}
+            disabled={exporting}
+            className="flex items-center gap-2 px-5 py-2.5 rounded bg-white text-brand-charcoal hover:bg-brand-lightGrey transition-colors text-sm font-headline font-semibold disabled:opacity-60"
           >
-            <Download className="w-4 h-4" />
-            Save PDF
+            {exporting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Download className="w-4 h-4" />}
+            {exporting ? 'Generating...' : 'Save PDF'}
           </button>
         </div>
       </div>

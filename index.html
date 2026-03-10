@@ -15,6 +15,10 @@
     <link rel="canonical" href="https://ai-cost-readiness.optimnow.cloud/" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
 
+    <!-- Preconnect hints for faster resource loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <!-- Open Graph / Facebook Meta Tags for LLM Context -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://ai-cost-readiness.optimnow.cloud/" />
@@ -22,12 +26,19 @@
     <meta property="og:description" content="Free interactive assessment to evaluate your organization's maturity in managing AI and cloud costs across 10 critical dimensions: visibility, allocation, monitoring, optimization, and business value measurement." />
     <meta property="og:site_name" content="OptimNow Cloud" />
     <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://ai-cost-readiness.optimnow.cloud/api/og" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="AI Cost Readiness Assessment by OptimNow - Evaluate your AI cost management maturity across 10 dimensions" />
 
     <!-- Twitter Card Meta Tags for Social Sharing -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://ai-cost-readiness.optimnow.cloud/" />
     <meta name="twitter:title" content="AI Cost Readiness Assessment | OptimNow Cloud FinOps Tool" />
     <meta name="twitter:description" content="Evaluate your organization's AI cost management maturity. Free assessment covering visibility, allocation, governance, unit economics, and ROI for AI workloads." />
+    <meta name="twitter:site" content="@OptimNow" />
+    <meta name="twitter:image" content="https://ai-cost-readiness.optimnow.cloud/api/og" />
+    <meta name="twitter:image:alt" content="AI Cost Readiness Assessment by OptimNow - Evaluate your AI cost management maturity across 10 dimensions" />
 
     <!-- Semantic Business Context for LLMs -->
     <meta name="category" content="Cloud Computing, FinOps, AI Cost Management" />
@@ -79,45 +90,123 @@
     }
     </script>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&family=Manrope:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Almarai', 'sans-serif'],
-              headline: ['Manrope', 'sans-serif'],
-              mono: ['Space Mono', 'monospace'],
-            },
-            colors: {
-              brand: {
-                chartreuse: '#ACE849', // The main accent
-                charcoal: '#2C2C2C',   // The main background
-                darkGrey: '#C1C1C1',
-                lightGrey: '#F4F4F4',
-                white: '#FFFFFF',
-              }
-            }
-          },
+    <!-- FAQ Structured Data for Rich Snippets & LLM Understanding -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is an AI Cost Readiness Assessment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An AI Cost Readiness Assessment evaluates how mature your organization is at managing AI and cloud computing costs. It scores your capabilities across 10 dimensions including real-time cost visibility, cost allocation, anomaly detection, unit economics, forecasting, and ROI measurement."
+          }
         },
-      }
+        {
+          "@type": "Question",
+          "name": "Who should take this assessment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "This assessment is designed for CTOs, VP Engineering, Cloud Architects, FinOps Managers, and DevOps Leads who are responsible for managing AI workload costs and cloud infrastructure spending."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is the AI cost readiness score calculated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The assessment evaluates 10 dimensions across 4 categories (Visibility, Control, Business Value). Each dimension is scored on a 3-point scale: Not Implemented (0), Partially Implemented (5), or Fully Optimized (10), for a maximum score of 100 points."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What do I get after completing the assessment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You receive an AI-powered personalized readiness report that includes your overall readiness score, an executive summary, your key strengths, critical gaps to address, and a strategic roadmap with phased action items to improve your AI cost governance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the 10 dimensions measured in the assessment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The 10 dimensions are: Real-time Visibility, Allocation Capability, Continuous Monitoring (Visibility category); Proxy Infrastructure, Alert Configuration, Optimization Speed (Control category); Business Context, Unit Economics, Forecast Capability, ROI Measurement (Business Value category)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the AI Cost Readiness Assessment free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, the AI Cost Readiness Assessment by OptimNow Cloud is completely free to use. It provides a personalized AI-generated readiness report at no cost."
+          }
+        }
+      ]
+    }
     </script>
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://aistudiocdn.com/react@^19.2.1",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
-    "react/": "https://aistudiocdn.com/react@^19.2.1/",
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.31.0",
-    "recharts": "https://aistudiocdn.com/recharts@^3.5.1",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0"
-  }
-}
-</script>
+
+    <!-- Organization Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "OptimNow Cloud",
+      "url": "https://optimnow.cloud",
+      "description": "OptimNow Cloud helps organizations optimize AI and cloud computing costs through FinOps best practices, cost governance tools, and strategic consulting.",
+      "knowsAbout": ["Cloud FinOps", "AI Cost Management", "Cloud Cost Optimization", "Unit Economics", "Cost Allocation", "AI ROI Measurement"]
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&family=Manrope:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
   <body class="bg-brand-charcoal text-brand-lightGrey antialiased selection:bg-brand-chartreuse selection:text-brand-charcoal">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
+
+    <!-- Crawlable fallback content for search engines and LLMs that don't execute JavaScript -->
+    <noscript>
+      <div style="max-width:800px;margin:0 auto;padding:40px 20px;font-family:sans-serif;color:#F4F4F4;">
+        <h1>AI Cost Readiness Assessment by OptimNow Cloud</h1>
+        <p>Evaluate your organization's maturity in managing AI and cloud computing costs. This free interactive assessment covers 10 critical dimensions across visibility, control, and business value measurement.</p>
+
+        <h2>Assessment Dimensions</h2>
+
+        <h3>Visibility</h3>
+        <ul>
+          <li><strong>Real-time Visibility</strong> - Can you see AI costs as they accumulate, rather than days later?</li>
+          <li><strong>Allocation Capability</strong> - Can you trace costs to specific features, users, or workflows?</li>
+          <li><strong>Continuous Monitoring</strong> - Are dashboards updated in real-time, rather than monthly or weekly?</li>
+        </ul>
+
+        <h3>Control</h3>
+        <ul>
+          <li><strong>Proxy Infrastructure</strong> - Do you have a gateway/proxy layer between your code and AI providers for cost tagging?</li>
+          <li><strong>Alert Configuration</strong> - Do you get notified of cost anomalies within minutes, not days?</li>
+          <li><strong>Optimization Speed</strong> - Can engineering respond to cost spikes or issues within hours?</li>
+        </ul>
+
+        <h3>Business Value</h3>
+        <ul>
+          <li><strong>Business Context</strong> - Can you explain AI costs to stakeholders in clear business terms?</li>
+          <li><strong>Unit Economics</strong> - Do you measure cost per business outcome, not just cost per service?</li>
+          <li><strong>Forecast Capability</strong> - Can you predict AI costs based on user behavior patterns?</li>
+          <li><strong>ROI Measurement</strong> - Do you connect AI spending directly to the business value delivered?</li>
+        </ul>
+
+        <h2>How It Works</h2>
+        <p>Answer 10 questions about your AI cost management practices. Each dimension is scored on a 3-point maturity scale: Not Implemented (0 points), Partially Implemented (5 points), or Fully Optimized (10 points). Your maximum possible score is 100 points.</p>
+        <p>After completing the assessment, you receive an AI-powered personalized readiness report with your overall score, executive summary, key strengths, critical gaps, and a strategic roadmap with phased action items.</p>
+
+        <h2>Who Should Take This Assessment</h2>
+        <p>This assessment is designed for CTOs, VP Engineering, Cloud Architects, FinOps Managers, and DevOps Leads responsible for managing AI workload costs and cloud infrastructure spending.</p>
+
+        <p>Please enable JavaScript to use the interactive assessment tool.</p>
+
+        <p><a href="https://optimnow.cloud">Visit OptimNow Cloud</a> | <a href="https://airoicalculator.optimnow.io/">AI ROI Calculator</a></p>
+      </div>
+    </noscript>
   </body>
 </html>
